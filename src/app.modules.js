@@ -1,4 +1,4 @@
-var app = angular.module('akdmie', ['ui.router']);
+var app = angular.module('mock', ['ui.router']);
 
 app.constant('appConfig', {
     baseApi: 'https://upwork.interviewed.com/mock/inventory'

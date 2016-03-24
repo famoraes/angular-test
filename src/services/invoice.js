@@ -12,6 +12,12 @@ app.factory('appInvoice', ['$rootScope', '$http', 'appConfig', function($rootSco
       edit: {}
     }
 
+    var _deserialize = function(data) {
+      return {
+        mock_inventory_invoice: data
+      }
+    }
+
     var _getList = function() {
       return $http({
         url: appConfig.baseApi + '/invoices.json',
@@ -25,9 +31,8 @@ app.factory('appInvoice', ['$rootScope', '$http', 'appConfig', function($rootSco
     }
 
     var _get = function(id) {
-      console.log(arguments.callee.caller.toString());
-      return $http.get(appConfig.baseApi + '/invoices/' + id + '.json').then(function(response) {
-        _data.edit = response.data;
+      return $http.get(appConfig.baseApi + '/invoices/' + id + '.json?api_token=' + _params.api_token).then(function(response) {
+        _data.edit = _deserialize(response.data);
 
         return response;
       });

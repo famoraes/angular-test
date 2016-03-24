@@ -12,6 +12,12 @@ app.factory('appProduct', ['$rootScope', '$http', 'appConfig', function($rootSco
       edit: {}
     }
 
+    var _deserialize = function(data) {
+      return {
+        mock_inventory_product: data
+      }
+    }
+
     var _getList = function() {
       return $http({
         url: appConfig.baseApi + '/products.json',
@@ -26,8 +32,8 @@ app.factory('appProduct', ['$rootScope', '$http', 'appConfig', function($rootSco
 
     var _get = function(id) {
       console.log(arguments.callee.caller.toString());
-      return $http.get(appConfig.baseApi + '/products/' + id + '.json').then(function(response) {
-        _data.edit = response.data;
+      return $http.get(appConfig.baseApi + '/products/' + id + '.json?api_token=' + $rootScope.APIToken).then(function(response) {
+        _data.edit = _deserialize(response.data);
 
         return response;
       });
