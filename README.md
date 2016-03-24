@@ -1,7 +1,11 @@
 # angular-test
 
 # Running
-- bower install && npm install
+```
+    bower install && npm install
+```
 
 # Build
-- gulp build
+```
+    gulp build
+```
