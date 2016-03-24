@@ -1,0 +1,30 @@
+<div class="row" style="margin-bottom: 10px;">
+  <div class="col-sm-12">
+    <a ui-sref="companies.create" class="btn btn-success pull-right">Create new</a>
+  </div>
+</div>
+<table class="table table-bordered" ng-if="companies.data.list.length">
+  <thead>
+    <th>#</th>
+    <th>Name</th>
+    <th>Locations</th>
+    <th>Employees</th>
+    <th>Industry</th>
+    <th>City</th>
+    <th>State</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="company in companies.data.list">
+      <th ng-bind="company.id"></th>
+      <th ng-bind="company.name"></th>
+      <th ng-bind="company.locations"></th>
+      <th ng-bind="company.employees"></th>
+      <th ng-bind="company.industry"></th>
+      <th ng-bind="company.city"></th>
+      <th ng-bind="company.state"></th>
+    </tr>
+  </tbody>
+</table>
+<div class="alert alert-info" ng-if="!companies.data.list.length">
+  <p>There's not companies.</p>
+</div>

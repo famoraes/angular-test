@@ -1,0 +1,30 @@
+<div class="row" style="margin-bottom: 10px;">
+  <div class="col-sm-12">
+    <a ui-sref="products.create" class="btn btn-success pull-right">Create new</a>
+  </div>
+</div>
+<table class="table table-bordered" ng-if="products.data.list.length">
+  <thead>
+    <th>#</th>
+    <th>Name</th>
+    <th>Brand</th>
+    <th>Servings</th>
+    <th>UPC</th>
+    <th>Price</th>
+    <th>Size</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="product in products.data.list">
+      <th ng-bind="product.id"></th>
+      <th ng-bind="product.name"></th>
+      <th ng-bind="product.brand"></th>
+      <th ng-bind="product.servings"></th>
+      <th ng-bind="product.upc"></th>
+      <th ng-bind="product.price"></th>
+      <th ng-bind="product.size"></th>
+    </tr>
+  </tbody>
+</table>
+<div class="alert alert-info" ng-if="!products.data.list.length">
+  <p>There's not products.</p>
+</div>

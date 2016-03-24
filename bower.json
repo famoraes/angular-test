@@ -1,0 +1,25 @@
+{
+  "name": "angular-test",
+  "homepage": "https://github.com/famoraes/angular-test",
+  "authors": [
+    "famoraes <fabiano.moraes@outlook.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.2",
+    "angular-ui-router": "~0.2.18",
+    "jquery": "~2.2.2",
+    "bootstrap": "~3.3.6"
+  }
+}

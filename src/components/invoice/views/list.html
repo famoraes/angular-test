@@ -1,0 +1,24 @@
+<div class="row" style="margin-bottom: 10px;">
+  <div class="col-sm-12">
+    <a ui-sref="invoices.create" class="btn btn-success pull-right">Create new</a>
+  </div>
+</div>
+<table class="table table-bordered" ng-if="invoices.data.list.length">
+  <thead>
+    <th>#</th>
+    <th>Discount</th>
+    <th>Company</th>
+    <th>Items</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="invoice in invoices.data.list">
+      <th ng-bind="invoice.id"></th>
+      <th ng-bind="invoice.discount"></th>
+      <th ng-bind="invoice.company.name"></th>
+      <th ng-bind="invoice.items.length"></th>
+    </tr>
+  </tbody>
+</table>
+<div class="alert alert-info" ng-if="!invoices.data.list.length">
+  <p>There's not invoices.</p>
+</div>

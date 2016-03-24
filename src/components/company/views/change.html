@@ -1,0 +1,30 @@
+<form class="form" name="companyForm" ng-submit="companyForm.$valid && createCompany()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" ng-model="companies.data.edit.mock_inventory_company.name" name="name" required placeholder="Ex: Mock company">
+  </div>
+  <div class="form-group">
+    <label for="locations">Locations</label>
+    <input type="number" class="form-control" ng-model="companies.data.edit.mock_inventory_company.locations" name="locations" required placeholder="Ex: 2">
+  </div>
+  <div class="form-group">
+    <label for="employees">Employees</label>
+    <input type="number" class="form-control" ng-model="companies.data.edit.mock_inventory_company.employees" name="employees" required placeholder="Ex: 2">
+  </div>
+  <div class="form-group">
+    <label for="industry">Industry</label>
+    <input type="text" class="form-control" ng-model="companies.data.edit.mock_inventory_company.industry" name="industry" required placeholder="Ex: Shoes">
+  </div>
+  <div class="form-group">
+    <label for="city">City</label>
+    <input type="text" class="form-control" ng-model="companies.data.edit.mock_inventory_company.city" name="city" required placeholder="Ex: San Francisco">
+  </div>
+  <div class="form-group">
+    <label for="state">State</label>
+    <input type="text" class="form-control" ng-model="companies.data.edit.mock_inventory_company.state" name="state" required placeholder="Ex: California">
+  </div>
+  <div class="form-group">
+    <a class="btn btn-default" ui-sref="companies.list">Cancel</a>
+    <button type="submit" class="btn btn-success">Save</button>
+  </div>
+</form>

@@ -1,0 +1,34 @@
+<form class="form" name="productForm" ng-submit="productForm.$valid && createProduct()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" ng-model="products.data.edit.mock_inventory_product.name" name="name" required placeholder="Ex: Red Shoes">
+  </div>
+  <div class="form-group">
+    <label for="brand">Brand</label>
+    <input type="text" class="form-control" ng-model="products.data.edit.mock_inventory_product.brand" name="brand" required placeholder="Ex: All stars">
+  </div>
+  <div class="form-group">
+    <label for="servings">Servings</label>
+    <input type="number" step="0.01" class="form-control" ng-model="products.data.edit.mock_inventory_product.servings" name="servings" required placeholder="Ex: 2.1">
+  </div>
+  <div class="form-group">
+    <label for="upc">UPC</label>
+    <input type="text" class="form-control" ng-model="products.data.edit.mock_inventory_product.upc" name="upc" required>
+  </div>
+  <div class="form-group">
+    <label for="image_url">Image URL</label>
+    <input type="text" class="form-control" ng-model="products.data.edit.mock_inventory_product.image_url" name="image_url" required >
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="number" class="form-control" ng-model="products.data.edit.mock_inventory_product.price" name="price" required placeholder="Ex: 10">
+  </div>
+  <div class="form-group">
+    <label for="size">Size</label>
+    <input type="number" class="form-control" ng-model="products.data.edit.mock_inventory_product.size" name="size" required placeholder="Ex: 2">
+  </div>
+  <div class="form-group">
+    <a class="btn btn-default" ui-sref="products.list">Cancel</a>
+    <button type="submit" class="btn btn-success">Save</button>
+  </div>
+</form>
