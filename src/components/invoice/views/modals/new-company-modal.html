@@ -1,0 +1,42 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="newCompanyModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add new product</h4>
+      </div>
+      <form name="companyForm" ng-submit="companyForm.$valid && createCompany()">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" ng-model="companies.data.edit.mock_inventory_company.name" name="name" required placeholder="Ex: Mock company">
+          </div>
+          <div class="form-group">
+            <label for="locations">Locations</label>
+            <input type="number" class="form-control" ng-model="companies.data.edit.mock_inventory_company.locations" name="locations" required placeholder="Ex: 2">
+          </div>
+          <div class="form-group">
+            <label for="employees">Employees</label>
+            <input type="number" class="form-control" ng-model="companies.data.edit.mock_inventory_company.employees" name="employees" required placeholder="Ex: 2">
+          </div>
+          <div class="form-group">
+            <label for="industry">Industry</label>
+            <input type="text" class="form-control" ng-model="companies.data.edit.mock_inventory_company.industry" name="industry" required placeholder="Ex: Shoes">
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" ng-model="companies.data.edit.mock_inventory_company.city" name="city" required placeholder="Ex: San Francisco">
+          </div>
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" class="form-control" ng-model="companies.data.edit.mock_inventory_company.state" name="state" required placeholder="Ex: California">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

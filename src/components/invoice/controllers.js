@@ -43,4 +43,22 @@ app.controller('InvoiceController', ['$scope', '$rootScope', '$state', 'appConfi
     $scope.items.create()
   }
 
+  $scope.createProduct = function() {
+    return $scope.products.create().then(function(response) {
+      $("#newProductModal").modal('hide');
+      $scope.products.getList();
+    }, function(response) {
+
+    });
+  }
+
+  $scope.createCompany = function() {
+    return $scope.companies.create().then(function(response) {
+      $("#newCompanyModal").modal('hide');
+      $scope.companies.getList();
+    }, function(response) {
+
+    });
+  }
+
 }]);
