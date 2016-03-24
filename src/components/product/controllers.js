@@ -13,16 +13,6 @@ app.controller('ProductController', ['$scope', '$rootScope', '$state', 'appConfi
     $scope.products.get(params.id);
   });
 
-  // $scope.removeStudent = function() {
-  //   var confirmModal = $("#confirmModal");
-
-  //   return $scope.students.remove().then(function(response) {
-  //     Notifications.success('Aluno removido com sucesso.').show();
-  //   }, function(response) {
-  //     Notifications.error(response.data['detail']).show();
-  //   });
-  // }
-
   $scope.createProduct = function() {
     return $scope.products.create().then(function(response) {
       $state.go('products.list');

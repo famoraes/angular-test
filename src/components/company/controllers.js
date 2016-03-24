@@ -13,16 +13,6 @@ app.controller('CompanyController', ['$scope', '$rootScope', '$state', 'appConfi
     $scope.companies.get(params.id);
   });
 
-  // $scope.removeStudent = function() {
-  //   var confirmModal = $("#confirmModal");
-
-  //   return $scope.students.remove().then(function(response) {
-  //     Notifications.success('Aluno removido com sucesso.').show();
-  //   }, function(response) {
-  //     Notifications.error(response.data['detail']).show();
-  //   });
-  // }
-
   $scope.createCompany = function() {
     return $scope.companies.create().then(function(response) {
       $state.go('companies.list');
