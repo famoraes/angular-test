@@ -12,6 +12,7 @@
     <th>UPC</th>
     <th>Price</th>
     <th>Size</th>
+    <th></th>
   </thead>
   <tbody>
     <tr ng-repeat="product in products.data.list">
@@ -22,6 +23,7 @@
       <th ng-bind="product.upc"></th>
       <th ng-bind="product.price"></th>
       <th ng-bind="product.size"></th>
+      <th><a ui-sref="products.edit({id: product.id})" class="btn btn-info">Edit</a></th>
     </tr>
   </tbody>
 </table>

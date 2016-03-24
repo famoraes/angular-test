@@ -11,12 +11,42 @@
     <input type="text" step="0.01" class="form-control" ng-model="invoices.data.edit.mock_inventory_invoice.discount" name="discount" required placeholder="Ex: All stars">
   </div>
 
-  <div ng-if="invoices.data.edit.mock_inventory_invoice.id">
-
-  </div>
-
   <div class="form-group">
     <a class="btn btn-default" ui-sref="invoices.list">Cancel</a>
     <button type="submit" class="btn btn-success">Save</button>
   </div>
 </form>
+
+<div class="row" ng-if="invoices.data.edit.mock_inventory_invoice.id">
+  <div class="col-sm-12">
+    <a class="btn btn-info" ng-click="addNewItem()">Add item</a>
+  </div>
+</div>
+<div class="row" style="margin-top: 20px;" ng-repeat="item in invoices.data.edit.mock_inventory_invoice.mock_inventory_invoice_items track by $index">
+  <div class="col-sm-12">
+    <form ng-submit="createItem($index)">
+      <div class="form-group">
+        <label for="product">Product</label>
+        <select class="form-control" ng-model="invoices.data.edit.mock_inventory_invoice.mock_inventory_invoice_items[$index].mock_inventory_invoice_items.mock_inventory_product_id" name="product" required placeholder="Ex: Red Shoes">
+          <option value="">Select</option>
+          <option ng-repeat="product in products.data.list" ng-selected="invoices.data.edit.mock_inventory_invoice.mock_inventory_invoice_items[$index].mock_inventory_invoice_items.mock_inventory_product_id == product.id" ng-bind="product.name" ng-value="product.id"></option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" ng-model="invoices.data.edit.mock_inventory_invoice.mock_inventory_invoice_items[$index].mock_inventory_invoice_items.description" name="description" required placeholder="Ex: All stars">
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" ng-model="invoices.data.edit.mock_inventory_invoice.mock_inventory_invoice_items[$index].mock_inventory_invoice_items.quantity" name="quantity" required placeholder="Ex: All stars">
+      </div>
+      <div class="form-group">
+        <label for="unit_price">Unit Price</label>
+        <input type="number" class="form-control" ng-model="invoices.data.edit.mock_inventory_invoice.mock_inventory_invoice_items[$index].mock_inventory_invoice_items.unit_price" name="unit_price" required placeholder="Ex: All stars">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

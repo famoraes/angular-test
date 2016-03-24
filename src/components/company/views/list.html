@@ -12,6 +12,7 @@
     <th>Industry</th>
     <th>City</th>
     <th>State</th>
+    <th></th>
   </thead>
   <tbody>
     <tr ng-repeat="company in companies.data.list">
@@ -22,6 +23,7 @@
       <th ng-bind="company.industry"></th>
       <th ng-bind="company.city"></th>
       <th ng-bind="company.state"></th>
+      <th><a ui-sref="companies.edit({id: company.id})" class="btn btn-info">Edit</a></th>
     </tr>
   </tbody>
 </table>

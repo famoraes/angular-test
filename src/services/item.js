@@ -1,4 +1,4 @@
-app.factory('appCompany', ['$rootScope', '$http', 'appConfig', function($rootScope, $http, appConfig) {
+app.factory('appItem', ['$rootScope', '$http', 'appConfig', function($rootScope, $http, appConfig) {
 
   function factory(params) {
 
@@ -14,13 +14,13 @@ app.factory('appCompany', ['$rootScope', '$http', 'appConfig', function($rootSco
 
     var _deserialize = function(data) {
       return {
-        mock_inventory_company: data
+        mock_inventory_product: data
       }
     }
 
     var _getList = function() {
       return $http({
-        url: appConfig.baseApi + '/companies.json',
+        url: appConfig.baseApi + '/invoice_items.json',
         method: 'GET',
         params: _params
       }).then(function(response){
@@ -32,7 +32,7 @@ app.factory('appCompany', ['$rootScope', '$http', 'appConfig', function($rootSco
 
     var _get = function(id) {
       console.log(arguments.callee.caller.toString());
-      return $http.get(appConfig.baseApi + '/companies/' + id + '.json?api_token=' + $rootScope.APIToken).then(function(response) {
+      return $http.get(appConfig.baseApi + '/invoice_items/' + id + '.json?api_token=' + $rootScope.APIToken).then(function(response) {
         _data.edit = _deserialize(response.data);
 
         return response;
@@ -44,9 +44,9 @@ app.factory('appCompany', ['$rootScope', '$http', 'appConfig', function($rootSco
 
       if (data.id) return _update(data);
 
-      data.api_token = _params.api_token;
+      data.api_token = $rootScope.APIToken;
 
-      return $http.post(appConfig.baseApi + '/companies.json?api_token=' + _params.api_token, data).then(function(response) {
+      return $http.post(appConfig.baseApi + '/invoice_items.json?api_token=' + $rootScope.APIToken, data).then(function(response) {
         _getList();
         _data.edit = {};
 
@@ -57,7 +57,9 @@ app.factory('appCompany', ['$rootScope', '$http', 'appConfig', function($rootSco
     var _update = function(companyData) {
       var data = companyData || angular.copy(_data.edit);
 
-      return $http.put(appConfig.baseApi + '/companies/' + data.id + '.json', data).then(function(response) {
+      data.api_token = $rootScope.APIToken;
+
+      return $http.put(appConfig.baseApi + '/invoice_items/' + data.id + '.json?api_token=' + $rootScope.APIToken, data).then(function(response) {
         _getList();
         _data.edit = {};
 
@@ -68,7 +70,7 @@ app.factory('appCompany', ['$rootScope', '$http', 'appConfig', function($rootSco
     var _remove = function(data) {
       var data = data || angular.copy(_data.edit);
 
-      return $http.delete(appConfig.baseApi + '/companies/' + data.id + '.json').then(function(response) {
+      return $http.delete(appConfig.baseApi + '/invoice_items/' + data.id + '.json').then(function(response) {
         _getList();
         _data.edit = {};
 

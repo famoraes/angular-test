@@ -9,6 +9,7 @@
     <th>Discount</th>
     <th>Company</th>
     <th>Items</th>
+    <th></th>
   </thead>
   <tbody>
     <tr ng-repeat="invoice in invoices.data.list">
@@ -16,6 +17,7 @@
       <th ng-bind="invoice.discount"></th>
       <th ng-bind="invoice.company.name"></th>
       <th ng-bind="invoice.items.length"></th>
+      <th><a ui-sref="invoices.edit({id: invoice.id})" class="btn btn-info">Edit</a></th>
     </tr>
   </tbody>
 </table>
